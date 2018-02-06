@@ -32,6 +32,7 @@ class UsersController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
+        Auth::login($user);
         session()->flash('success','用户注册成功');
 
         return redirect()->route('users.show',[$user]);
